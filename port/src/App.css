@@ -1,0 +1,41 @@
+/* Fullscreen half-circle container with gradient background */
+.curve-container {
+  position: fixed; /* Fix the position so it overlays the content */
+  bottom: 0; /* Align to the bottom of the viewport */
+  left: 0; /* Align to the left of the viewport */
+  width: 100vw; /* Full viewport width */
+  height: 20vh; /* Initial height to show 20% of the viewport height */
+  background: linear-gradient(to bottom, #fddbb0, #ffffff); /* Gradient from skin color to white */
+  border-top-left-radius: 50% 30%;
+  border-top-right-radius: 50% 30%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(0); /* Start at the bottom of the viewport */
+  transition: height 0.5s ease, transform 0.5s ease, opacity 0.5s ease; /* Transition for height, sliding, and fading */
+  opacity: 1; /* Start with visible opacity */
+  z-index: 20; /* Ensure it is above other content */
+}
+
+/* Show the curve-container when active */
+.curve-container.active {
+  height: 100vh; /* Expand to full height */
+  transform: translateY(0); /* Keep at the bottom of the viewport */
+}
+
+.hidden {
+  height: 20vh; /* Height to show 20% of the viewport height */
+  transform: translateY(0); /* Position it at the bottom of the viewport */
+  opacity: 1; /* Ensure it is visible initially */
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 250px); /* 3 columns with 250px width each */
+  grid-template-rows: repeat(3, 250px); /* 3 rows with 250px height each */
+  gap: 80px; /* Increased gap between images */
+  width: calc(3 * 250px + 2 * 80px); /* Total width: (3 columns * 250px) + (2 gaps * 80px) */
+  height: calc(3 * 250px + 2 * 80px); /* Total height: (3 rows * 250px) + (2 gaps * 80px) */
+  margin-top: 350px; /* Shift the grid down by 150px */
+}
